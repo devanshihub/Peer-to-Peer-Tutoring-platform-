@@ -5,31 +5,55 @@ function BookSession({ prefill, onBook }) {
   const [tutor, setTutor] = useState("");
   const [subject, setSubject] = useState("");
   const [datetime, setDatetime] = useState("");
-  const [message, setMessage] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
+  // load prefilled data if passed
   useEffect(() => {
     if (prefill) {
-      setTutor(prefill.tutor);
-      setSubject(prefill.subject);
+      if (prefill.tutor) {
+        setTutor(prefill.tutor);
+      }
+      if (prefill.subject) {
+        setSubject(prefill.subject);
+      }
     }
   }, [prefill]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!tutor || !subject || !datetime) {
-      setMessage("Please fill all details");
+    if (tutor === "" || subject === "" || datetime === "") {
+      setErrorMsg("Please fill all fields");
       return;
     }
 
-    const [date, time] = datetime.split("T");
-    const booking = { tutor, subject, date, time };
+    const parts = datetime.split("T");
+    const booking = {
+      tutor: tutor,
+      subject: subject,
+      date: parts[0],
+      time: parts[1],
+    };
 
-    const sessions = JSON.parse(localStorage.getItem("sessions")) || [];
-    sessions.push(booking);
-    localStorage.setItem("sessions", JSON.stringify(sessions));
+    let savedSessions = localStorage.getItem("sessions");
+    if (savedSessions) {
+      savedSessions = JSON.parse(savedSessions);
+    } else {
+      savedSessions = [];
+    }
 
-    onBook(booking);
+    savedSessions.push(booking);
+    localStorage.setItem("sessions", JSON.stringify(savedSessions));
+
+    if (onBook) {
+      onBook(booking);
+    }
+
+    // clear inputs
+    setTutor("");
+    setSubject("");
+    setDatetime("");
+    setErrorMsg(""); // remove error after successful save
   };
 
   return (
@@ -37,24 +61,34 @@ function BookSession({ prefill, onBook }) {
       <h2 className={styles.booksession}>Book a New Session</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         <label>Tutor Name:</label>
-        <input type="text" value={tutor}
+        <input
+          type="text"
+          value={tutor}
           onChange={(e) => setTutor(e.target.value)}
+          className={styles.input}
         />
 
         <label>Subject:</label>
-        <input type="text" value={subject}
+        <input
+          type="text"
+          value={subject}
           onChange={(e) => setSubject(e.target.value)}
+          className={styles.input}
         />
 
         <label>Date & Time:</label>
         <input
-          type="datetime-local" value={datetime}
+          type="datetime-local"
+          value={datetime}
           onChange={(e) => setDatetime(e.target.value)}
+          className={styles.input}
         />
 
-        <button type="submit">Book</button>
+        <button type="submit" className={styles.button}>
+          Book
+        </button>
       </form>
-      {message && <p className={styles.error}>{message}</p>}
+      {errorMsg && <p className={styles.error}>{errorMsg}</p>}
     </div>
   );
 }
