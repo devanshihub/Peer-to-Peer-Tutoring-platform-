@@ -1,0 +1,38 @@
+.empty {
+  margin-top: 15px;
+  color: #666;
+  font-style: italic;
+}
+
+.list {
+  margin-top: 15px;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  background: #fff;
+  margin: 10px 0;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  color: #333;
+  transition: transform 0.2s;
+}
+
+.item:hover {
+  transform: translateY(-3px);
+}
+
+.subject {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #1a73e8; 
+}
+
+.details {
+  font-size: 0.95rem;
+  color: #555;
+}
