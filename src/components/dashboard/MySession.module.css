@@ -1,0 +1,15 @@
+.container {
+  padding: 1rem;
+}
+
+.mysession {
+  color : black;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.sessionItem{
+  display : flex;
+  flex-direction: column;
+  gap : 12px;
+}
