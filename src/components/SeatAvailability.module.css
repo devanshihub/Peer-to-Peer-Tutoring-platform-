@@ -1,0 +1,55 @@
+.container {
+  padding: 20px;
+}
+
+.formGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dayCard {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex: 1 1 220px;
+}
+
+.dayCard label {
+  display: block;
+  font-weight: 500;
+  margin: 8px 0 4px;
+  color: #333;
+}
+
+.dayCard input,
+.dayCard select {
+  display: block;
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.buttonWrapper {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.submitBtn {
+  background-color: #1a73e8;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submitBtn:hover {
+  background-color: #155ab6;
+}

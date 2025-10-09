@@ -1,70 +1,28 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Home from "./components/Home";
-import About from "./components/About";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import ProtectedRoute from "./components/ProtectedRoute";
-import StudentDashboard from "./components/studentdashboard";
+import { useState } from "react";
+import "./App.css";
+import Sidebar from "./components/Sidebar.jsx";
+import Dashboard from "./components/Dashboard.jsx";
+import ViewRequests from "./components/ViewRequests.jsx";
+import SeatAvailability from "./components/SeatAvailability.jsx";
+import MyLectures from "./components/MyLectures.jsx";
 
-const App = () => {
+function App() {
+  const [currentPage, setCurrentPage] = useState("dashboard");
+
   return (
-    <div className="app-container">
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Navbar />
-              <Home />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <>
-              <Navbar />
-              <About />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <>
-              <Navbar />
-              <Login />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/signup"
-          element={
-            <>
-              <Navbar />
-              <Signup />
-              <Footer />
-            </>
-          }
-        />
+    <div className="app">
+      {}
+      <Sidebar setCurrentPage={setCurrentPage} currentPage={currentPage} />
 
-        <Route
-          path="/student-dashboard"
-          element={
-            <ProtectedRoute>
-              <StudentDashboard />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
+      {}
+      <main className="content">
+        {currentPage === "dashboard" && <Dashboard />}
+        {currentPage === "requests" && <ViewRequests />}
+        {currentPage === "availability" && <SeatAvailability />}
+        {currentPage === "lectures" && <MyLectures />}
+      </main>
     </div>
   );
-};
+}
 
 export default App;
