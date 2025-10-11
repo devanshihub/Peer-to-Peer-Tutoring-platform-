@@ -1,16 +1,10 @@
 .card {
-  background: #fff;
+  background-color: azure;
   padding: 40px;
-  border-radius: 10px;
+  border-radius: 10px solid black;
   max-width: 600px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.success {
-  font-size: 80px;
-  color: #4caf50;
-  margin-bottom: 20px;
+  box-shadow: 0 4px 12px black;
 }
 
 .btn {
@@ -22,8 +16,4 @@
   background: #4caf50;
   color: white;
   cursor: pointer;
-}
-
-.btn:hover {
-  background: #45a049;
 }

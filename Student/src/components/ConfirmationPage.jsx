@@ -5,7 +5,7 @@ function ConfirmPage({ booking, onnewbooking }) {
   if (!booking) return <p>No booking has been made yet.</p>;
 
   return (
-    <div className={styles.confirmation}>
+    <div className={styles.card}>
       <h2>Booking Confirmed!</h2>
       <p><strong>Tutor:</strong> {booking.tutor}</p>
       <p><strong>Subject:</strong> {booking.subject}</p>

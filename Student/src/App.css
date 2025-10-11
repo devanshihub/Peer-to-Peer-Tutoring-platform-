@@ -1,20 +1,3 @@
-/* Shared card layout */
-.card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  max-width: 700px;
-  margin: 20px auto;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-}
-
-/* Form inside card */
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
 .form label {
   font-weight: bold;
   color: #333;
@@ -27,48 +10,10 @@
   font-size: 14px;
 }
 
-/* Buttons */
-button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.3s ease;
-}
-
 button:hover {
   background-color: #45a049;
 }
 
-/* Error messages */
-.error {
-  color: red;
-  font-size: 13px;
-}
-
-/* Tutor list / session cards */
-.sessionCard {
-  background: #f1f1f1;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 12px;
-}
-
-/* Text styles */
-p {
-  margin: 6px 0;
-  color: #333;
-}
-
-h2 {
-  color: #4caf50;
-  margin-bottom: 15px;
-}
-
-/* Sidebar */
 .sidebar {
   width: 200px;
   background-color: #f1f1f1;
@@ -90,11 +35,10 @@ h2 {
   font-size: 14px;
 }
 
-/* Layout */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: rgb(124, 187, 124);
+  background-color: rgb(234, 194, 234);
   color: #333;
 }
 
@@ -106,6 +50,5 @@ body {
   flex: 1;
   padding: 30px;
   min-height: 100vh;
-  background-color: rgb(185, 234, 185);
-  overflow-y: auto;
+  background-color: rgb(221, 180, 221);
 }

@@ -1,19 +1,18 @@
 .card {
   background: white;
-  border-radius: 12px;
   padding: 20px;
   max-width: 1000px;
   height: 300px;
   margin: 20px auto;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  border-radius: 10px solid black;
+  box-shadow: 0 4px 12px black;
 }
 
 .sessionCard {
   display : flex;
   flex-direction : column;
   gap: 12px;
-  background: #bcf0c2;
-  border-radius: 10px;
+  background: rgb(237, 176, 237);
   height : 200px;
   padding: 15px;
   margin-top: 10px;

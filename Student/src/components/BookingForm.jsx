@@ -7,7 +7,6 @@ function BookSession({ prefill, onBook }) {
   const [datetime, setDatetime] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
-  // load prefilled data if passed
   useEffect(() => {
     if (prefill) {
       if (prefill.tutor) {
@@ -28,11 +27,7 @@ function BookSession({ prefill, onBook }) {
     }
 
     const parts = datetime.split("T");
-    const booking = {
-      tutor: tutor,
-      subject: subject,
-      date: parts[0],
-      time: parts[1],
+    const booking = {tutor: tutor, subject: subject, date: parts[0], time: parts[1],
     };
 
     let savedSessions = localStorage.getItem("sessions");
@@ -49,11 +44,10 @@ function BookSession({ prefill, onBook }) {
       onBook(booking);
     }
 
-    // clear inputs
     setTutor("");
     setSubject("");
     setDatetime("");
-    setErrorMsg(""); // remove error after successful save
+    setErrorMsg(""); 
   };
 
   return (
@@ -61,32 +55,23 @@ function BookSession({ prefill, onBook }) {
       <h2 className={styles.booksession}>Book a New Session</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         <label>Tutor Name:</label>
-        <input
-          type="text"
-          value={tutor}
+        <input type="text" value={tutor}
           onChange={(e) => setTutor(e.target.value)}
           className={styles.input}
         />
 
         <label>Subject:</label>
-        <input
-          type="text"
-          value={subject}
+        <input type="text" value={subject}
           onChange={(e) => setSubject(e.target.value)}
           className={styles.input}
         />
 
         <label>Date & Time:</label>
-        <input
-          type="datetime-local"
-          value={datetime}
+        <input className={styles.input} type="datetime-local" value={datetime}
           onChange={(e) => setDatetime(e.target.value)}
-          className={styles.input}
         />
 
-        <button type="submit" className={styles.button}>
-          Book
-        </button>
+        <button type="submit" className={styles.button}>Book</button>
       </form>
       {errorMsg && <p className={styles.error}>{errorMsg}</p>}
     </div>
