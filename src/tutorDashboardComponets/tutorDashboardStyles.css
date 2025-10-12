@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: black;
+  font-size: 18px;
+  font-family: Arial;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+ol,
+ul {
+  margin-left: 50px;
+}
+li {
+  margin-bottom: 10px;
+}
+
+img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+form {
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: 0.3s;
+  margin-bottom: 15px;
+}
+
+input:focus {
+  border-color: #4f20bd;
+  outline: none;
+  box-shadow: 0 0 5px rgba(79, 32, 189, 0.4);
+}
+.container {
+  width: 75vw;
+  margin: 50px;
+  background: #c3b7de;
+  border-radius: 12px;
+  padding: 20px;
+  height: 80vh;
+  overflow: auto;
+}
+
+.button {
+  background-color: #4f20bd;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.button:hover {
+  background-color: green;
+}
+.button-active {
+  background-color: yellow;
+}
+
+/* student dashboard container */
+
+.student-dashboard-container {
+  background-color: white;
+  display: flex;
+}
+
+/* sidebar */
+
+.sidebar {
+  width: 250px;
+  background-color: black;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  height: 100vh;
+}
+.sidebar-button {
+  width: 100%;
+  background-color: #4f20bd;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sidebar-button:hover {
+  background-color: #7d64b6;
+}
+
+.sidebar-button-active {
+  background-color: #7d64b6;
+  font-size: 18px;
+}
+
+.student-img {
+  background-color: white;
+  width: 70%;
+  margin: 30px;
+}
+
+/* profile container*/
+
+.profile-container {
+  width: 75vw;
+  margin: 50px;
+  background: #c3b7de;
+  border-radius: 12px;
+  padding: 20px;
+  height: 80vh;
+}
+.profile-container p {
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+/* search tutor */
+
+.tutor-card {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 10px;
+  gap: 15px;
+  padding: 15px;
+  width: 100%;
+  background-color: white;
+
+  margin-bottom: 20px;
+}
