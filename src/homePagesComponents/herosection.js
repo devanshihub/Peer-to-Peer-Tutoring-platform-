@@ -9,16 +9,16 @@ function Herosection() {
           At <strong>Scrum Peer</strong> we believe that learning should never
           stop because of confusion, fear, or lack of guidance.
           <strong>
-            We’ve built a platform where students connect instantly with subject
+            We have built a platform where students connect instantly with subject
             experts, transforming doubt into understanding, and stress into
             confidence.
           </strong>
         </p>
         <p>
-          Learning doesn’t need to wait for the next class or expensive tutoring
+          Learning does not need to wait for the next class or expensive tutoring
           sessions.
           <strong>With Scrum Peer, help is just a few clicks away.</strong>
-          Whether it’s a last-minute concept before an exam, a tricky coding
+          Whether its a last-minute concept before an exam, a tricky coding
           problem, or a challenging math formula — our community of mentors is
           always ready to help.
         </p>
@@ -30,26 +30,26 @@ function Herosection() {
         <img src="/images/heroImage-2.jpg"></img>
       </div>
       <div className="heroSection-card">
-        <div className="herosection-heading">🌐 Why Choose Scrum Peer?</div>
+        <div className="herosection-heading"> Why Choose Scrum Peer?</div>
         <p>
-          Because we’re not just a tutoring platform - we’re a learning
+          Because we are not just a tutoring platform - we are a learning
           movement.
         </p>
-        <p>We connect learners and educators in a way that’s: </p>
+        <p>We connect learners and educators in a way that: </p>
         <ul>
           <li>
-            <strong>Fast –</strong> Find tutors instantly, no waiting lists.
+            <strong>Fast </strong> Find tutors instantly, no waiting lists.
           </li>
           <li>
-            <strong>Flexible –</strong> Learn anytime, anywhere.
+            <strong>Flexible </strong> Learn anytime, anywhere.
           </li>
           <li>
-            <strong>Personalized –</strong>
+            <strong>Personalized </strong>
             Match with the right mentor based on your subject and learning
             needs.
           </li>
           <li>
-            <strong>Collaborative – </strong>Learn through real conversations,
+            <strong>Collaborative  </strong>Learn through real conversations,
             not one-way lectures.
           </li>
         </ul>
@@ -62,7 +62,7 @@ function Herosection() {
             <strong>Sign Up</strong> as a Student or Tutor.
           </li>
           <li>
-            <strong>Flexible –</strong> Learn anytime, anywhere.
+            <strong>Flexible </strong> Learn anytime, anywhere.
           </li>
           <li>
             <strong>Search for a Subject</strong> you want to learn or teach
@@ -73,11 +73,11 @@ function Herosection() {
           </li>
           <li>
             <strong>Send a Request — </strong>
-            if accepted, you’re connected instantly for a live chat session.
+            if accepted, you are connected instantly for a live chat session.
           </li>
         </ol>
         <p>
-          It’s simple, quick, and effective — just the way modern learning
+          It is simple, quick, and effective — just the way modern learning
           should be.
         </p>
       </div>

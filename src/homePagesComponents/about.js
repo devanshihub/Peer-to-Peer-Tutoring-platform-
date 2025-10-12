@@ -1,7 +1,7 @@
 function About() {
   return (
     <div className="about-container">
-      <p className="about-heading">About Page – </p>
+      <p className="about-heading">About Page  </p>
       <p>
         <strong>"Our Story, Our Journey”</strong> Scrum Peer was born from a
         simple realization — students struggle when learning alone, and tutors
@@ -13,7 +13,7 @@ function About() {
         tutors to teach flexibly, creating a dynamic cycle of learning,
         teaching, and growth.
       </p>
-      <p className="about-heading">🚀 Our Vision</p>
+      <p className="about-heading"> Our Vision</p>
       <p>To make education accessible, interactive, and human-centered.</p>
 
       <ul>
@@ -27,7 +27,7 @@ function About() {
         </li>
       </ul>
 
-      <p className="about-heading">🌱 Our Philosophy</p>
+      <p className="about-heading"> Our Philosophy</p>
       <p>We believe in three pillars:</p>
 
       <ul>
@@ -41,7 +41,7 @@ function About() {
         </li>
         <li>
           <strong>Community:</strong> A space where learning and teaching fuel
-          each other’s progress.
+          each other progress.
         </li>
       </ul>
     </div>

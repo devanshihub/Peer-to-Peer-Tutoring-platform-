@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import BookingForm from "./bookingForm";
 
 function SearchTutor() {
   const [search, setSearch] = useState("");
+  const [selectedTutor, setSelectedTutor] = useState(null);
+
 
   const tutors = [
     { id: 1, name: "Tina", subject: "Math", timings: "03:00" },
@@ -22,20 +25,29 @@ function SearchTutor() {
         type="text"
         placeholder="Search by name or subject"
         value={search}
+        onChange={(e)=> setSearch(e.target.value)}
       />
 
       <div>
         {tutors.map((tutor) => (
-          <Tutor tutor={tutor} key={tutor.id} />
+          <Tutor tutor={tutor} key={tutor.id} onBook={ () => setSelectedTutor(tutor)}/>
         ))}
       </div>
-    </div>
+      
+      {selectedTutor && (
+        <BookingForm tutor={selectedTutor.name}
+        subject={selectedTutor.subject}
+        onClose={()=> setSelectedTutor(null)}
+        />
+      )}
+      </div>
   );
 }
 
-function Tutor({ tutor }) {
+
+function Tutor({ tutor ,onBook }) {
   return (
-    <div class="tutor-card">
+    <div className="tutor-card">
       <p>
         <strong>Tutor Name : </strong>
         {tutor.name}
@@ -43,7 +55,7 @@ function Tutor({ tutor }) {
       <p>
         <strong>Tutor Subject :</strong> {tutor.subject}
       </p>
-      <button className="button">Book Session</button>
+      <button className="button" onClick={onBook}>Book Session</button>
     </div>
   );
 }
