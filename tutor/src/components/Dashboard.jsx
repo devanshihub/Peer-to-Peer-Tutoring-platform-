@@ -30,6 +30,10 @@ function Dashboard() {
       <h1>Dashboard</h1>
       <h2>Welcome to Tutor Dashboard</h2>
 
+      <button className={styles.refreshButton} onClick={loadData}>
+        Refresh Data
+      </button>
+
       <div className={styles.cards}>
         <div className={styles.card}>
           <h3>Total Requests</h3>
