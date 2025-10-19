@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import BookingForm from "./bookingForm";
+import { Link } from "react-router-dom";
 
 function SearchTutor() {
   const [search, setSearch] = useState("");
@@ -18,6 +19,12 @@ function SearchTutor() {
     { id: 9, name: "Priya", subject: "History" },
   ];
 
+  // TODO - ADD API
+  const setToStorage = (tutor = {}) => {
+    setSelectedTutor(tutor);
+    localStorage.setItem("currentTutor", JSON.stringify(tutor));
+  }
+
   return (
     <div className="container">
       <h2>Search Tutors</h2>
@@ -25,27 +32,27 @@ function SearchTutor() {
         type="text"
         placeholder="Search by name or subject"
         value={search}
-        onChange={(e)=> setSearch(e.target.value)}
+        onChange={(e) => setSearch(e.target.value)}
       />
 
       <div>
         {tutors.map((tutor) => (
-          <Tutor tutor={tutor} key={tutor.id} onBook={ () => setSelectedTutor(tutor)}/>
+          <Tutor tutor={tutor} key={tutor.id} onBook={() => setToStorage(tutor)} />
         ))}
       </div>
-      
-      {selectedTutor && (
+
+      {/* {selectedTutor && (
         <BookingForm tutor={selectedTutor.name}
-        subject={selectedTutor.subject}
-        onClose={()=> setSelectedTutor(null)}
+          subject={selectedTutor.subject}
+          onClose={() => setSelectedTutor(null)}
         />
-      )}
-      </div>
+      )} */}
+    </div>
   );
 }
 
 
-function Tutor({ tutor ,onBook }) {
+function Tutor({ tutor, onBook }) {
   return (
     <div className="tutor-card">
       <p>
@@ -55,7 +62,11 @@ function Tutor({ tutor ,onBook }) {
       <p>
         <strong>Tutor Subject :</strong> {tutor.subject}
       </p>
-      <button className="button" onClick={onBook}>Book Session</button>
+      <Link to="/book-session">
+        <button className="button" onClick={onBook}>
+          Book Session
+        </button>
+      </Link>
     </div>
   );
 }

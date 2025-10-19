@@ -1,7 +1,7 @@
-import Profile from "./tutorDashboardComponents/profile";
 import UpcommingSessions from "./tutorDashboardComponents/upcommingSessions";
 import Requests from "./tutorDashboardComponents/requests";
 import { useState } from "react";
+import Profile from "./common/Profile/Profile";
 
 function TutorDashboard() {
   const [activeItem, setActiveItem] = useState("Profile");
@@ -9,7 +9,7 @@ function TutorDashboard() {
 
   function handleProfile() {
     setActiveItem("Profile");
-    setWindow(<Profile />);
+    setWindow(<Profile type="tutor" />);
   }
   function handleRequests() {
     setActiveItem("Requests");

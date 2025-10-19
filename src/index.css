@@ -1,27 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-size: 18px;
-  font-family: Arial;
+  font-family: "Open Sans", sans-serif;
 }
+
 p {
   font-size: 20px;
-  margin-bottom: 10px;
 }
+
 ol,
 ul {
   margin-left: 50px;
 }
+
 li {
   margin-bottom: 10px;
 }
+
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
 img {
   width: 100%;
   border-radius: 20px;
 }
+
 form {
   text-align: left;
 }
@@ -48,13 +60,8 @@ input:focus {
   box-shadow: 0 0 5px rgba(79, 32, 189, 0.4);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: black;
-  font-size: 18px;
-  font-family: Arial;
+input::placeholder{
+  font-family: "Open Sans", sans-serif;
 }
 
 h2 {
@@ -62,14 +69,12 @@ h2 {
   font-weight: bold;
   margin-bottom: 20px;
 }
-p {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
+
 ol,
 ul {
   margin-left: 50px;
 }
+
 li {
   margin-bottom: 10px;
 }
@@ -186,6 +191,7 @@ input:focus {
   background-color: rgba(240, 236, 255, 0.6);
   padding: 20px;
 }
+
 .about-heading {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -257,7 +263,6 @@ input:focus {
 
 /* footer */
 .footer-container {
-  font-family: Arial;
   font-size: 20px;
   text-align: center;
   padding: 20px;
@@ -285,9 +290,11 @@ input:focus {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .button:hover {
   background-color: green;
 }
+
 .button-active {
   background-color: yellow;
 }
@@ -311,6 +318,11 @@ input:focus {
   gap: 12px;
   height: 100vh;
 }
+
+.sidebar a{
+  width: 100%;
+}
+
 .sidebar-button {
   width: 100%;
   background-color: #4f20bd;
@@ -337,33 +349,15 @@ input:focus {
   margin: 30px;
 }
 
-/* profile container*/
-
-.profile-container {
-  width: 75vw;
-  margin: 50px;
-  background: #c3b7de;
-  border-radius: 12px;
-  padding: 20px;
-  height: 80vh;
-}
-.profile-container p {
-  border-radius: 10px;
-  background-color: white;
-  padding: 10px;
-}
-
 /* search tutor */
 
 .tutor-card {
   align-items: center;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-bottom: 10px;
   border-radius: 10px;
-  gap: 15px;
   padding: 15px;
   width: 100%;
   background-color: white;
-
-  margin-bottom: 20px;
 }

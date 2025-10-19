@@ -1,13 +1,26 @@
 import React, { useState, useEffect } from "react";
 
-function BookingForm({tutor, subject, onclose}) {
+function BookingForm() {
   const [datetime, setDatetime] = useState("");
+  const [tutor,setTutor] = useState({
+    name:"",
+    subject:"",
+  })
 
   const handleSubmit =(e) => {
     e.preventDefault();
-    alert(`Booked ${tutor} for ${subject} at ${datetime} `);
+    alert(`Booked ${tutor.name} for ${tutor.subject} at ${datetime} `);
     onclose();
   }
+
+  const getFromStorage = () => {
+    const currentTutor = JSON.parse(localStorage.getItem("currentTutor"));
+    setTutor(currentTutor);
+  }
+
+  useEffect(()=>{
+    getFromStorage();
+  },[]);
 
   return (
     <div className="container">
@@ -16,13 +29,13 @@ function BookingForm({tutor, subject, onclose}) {
         <label>Tutor Name:</label>
         <input
           type="text"
-          value={tutor}
+          value={tutor.name}
         />
 
         <label>Subject:</label>
         <input
           type="text"
-          value={subject}
+          value={tutor.subject}
         />
 
         <label>Date & Time:</label>

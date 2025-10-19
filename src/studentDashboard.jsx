@@ -1,71 +1,80 @@
 import BookingForm from "./studentDashboardComponents/bookingForm";
-import Profile from "./studentDashboardComponents/profile";
 import SearchTutor from "./studentDashboardComponents/searchTutor";
 
 import MySessions from "./studentDashboardComponents/mySessions";
 
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link, Outlet, useLocation, useNavigation, useParams } from "react-router-dom";
+import Profile from "./common/Profile/Profile";
 
 function StudentDashboard() {
   const [activeItem, setActiveItem] = useState("Profile");
-  const [activeWindow, setWindow] = useState(<Profile />);
+  const location = useLocation();
+  const { pathname } = location;
 
-  function handleProfile() {
-    setActiveItem("Profile");
-    setWindow(<Profile />);
+  const getActiveItem = () => {
+    if (pathname === "/book-session") {
+      setActiveItem("BookingForm");
+    }
+    else if (pathname === "/search-tutor") {
+      setActiveItem("SearchTutor");
+    }
+    else if (pathname === "/my-sessions") {
+      setActiveItem("MySessions");
+    }
+    else {
+      setActiveItem("Profile");
+    }
   }
-  function handleTutor() {
-    setActiveItem("SearchTutor");
-    setWindow(<SearchTutor />);
-  }
-  function handleSession() {
-    setActiveItem("BookingForm");
-    setWindow(<BookingForm />);
-  }
-  function handleMySession() {
-    setActiveItem("MySessions");
-    setWindow(<MySessions />);
-  }
+
+  useEffect(() => {
+    getActiveItem();
+  }, [pathname]);
 
   return (
     <div className="student-dashboard-container ">
       <div className="sidebar">
         <img src="/images/student.png" className="student-img"></img>
-        <button
-          onClick={handleProfile}
-          className={`sidebar-button ${
-            activeItem === "Profile" ? "sidebar-button-active" : ""
-          }`}
-        >
-          Profile
-        </button>
+        <Link to="/">
+          <button
+            // onClick={handleProfile}
+            className={`sidebar-button ${activeItem === "Profile" ? "sidebar-button-active" : ""
+              }`}
+          >
+            Profile
+          </button>
+        </Link>
 
-        <button
-          onClick={handleTutor}
-          className={`sidebar-button ${
-            activeItem === "SearchTutor" ? "sidebar-button-active" : ""
-          }`}
-        >
-          Search Tutor
-        </button>
-        <button
-          onClick={handleSession}
-          className={`sidebar-button ${
-            activeItem === "BookingForm" ? "sidebar-button-active" : ""
-          }`}
-        >
-          Book a Session
-        </button>
-        <button
-          onClick={handleMySession}
-          className={`sidebar-button ${
-            activeItem === "MySessions" ? "sidebar-button-active" : ""
-          }`}
-        >
-          My Sessions
-        </button>
+        <Link to="/search-tutor">
+          <button
+            className={`sidebar-button ${activeItem === "SearchTutor" ? "sidebar-button-active" : ""
+              }`}
+          >
+            Search Tutor
+          </button>
+        </Link>
+
+        <Link to="/book-session">
+          <button
+            // onClick={handleSession}
+            className={`sidebar-button ${activeItem === "BookingForm" ? "sidebar-button-active" : ""
+              }`}
+          >
+            Book Session
+          </button>
+        </Link>
+
+        <Link to="my-sessions">
+          <button
+            // onClick={handleMySession}
+            className={`sidebar-button ${activeItem === "MySessions" ? "sidebar-button-active" : ""
+              }`}
+          >
+            My Sessions
+          </button>
+        </Link>
       </div>
-      <div>{activeWindow}</div>
+      <Outlet />
     </div>
   );
 }
