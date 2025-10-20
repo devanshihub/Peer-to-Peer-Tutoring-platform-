@@ -1,79 +1,63 @@
 import React, { useState, useEffect } from "react";
 
 function MySessions() {
-  const tutors = [
-    {
-      id: 1,
-      name: "Tina",
-      subject: "Math",
-      timings: "03:00",
-      date: "12/12/2025",
-    },
-    {
-      id: 2,
-      name: "Bhavya",
-      subject: "Science",
-      timings: "14:30",
-      date: "12/12/2025",
-    },
-    {
-      id: 3,
-      name: "Priya",
-      subject: "History",
-      timings: "09:53",
-      date: "12/12/2025",
-    },
-  ];
+  const [sessions, setSessions] = useState([]);
 
-  const [currentTime, setCurrentTime] = useState(() => {
+  const getSessionStatus = (sessionDateTime, durationMinutes = 60) => {
     const now = new Date();
-
-    return now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-  });
+    const sessionStart = new Date(sessionDateTime);
+    const sessionEnd = new Date(sessionStart.getTime() + durationMinutes * 60000);
+    if (now < sessionStart) {
+      return "Upcoming";
+    } else if (now >= sessionStart && now <= sessionEnd) {
+      return "Active";
+    } else {
+      return "Inactive";
+    }
+  }
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date();
-      setCurrentTime(
-        now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
-      );
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+    // Load all booked sessions from localStorage
+    const storedBookings = JSON.parse(localStorage.getItem("bookedSessions")) || [];
+    setSessions(storedBookings);
+  }, []); // runs once when page loads
 
   return (
     <div className="container">
       <h2>My Upcoming Sessions</h2>
-      <div>
-        {tutors.map((tutor) => (
-          <Tutor tutor={tutor} key={tutor.id} currentTime={currentTime} />
-        ))}
-      </div>
-    </div>
-  );
-}
 
-function Tutor({ tutor, currentTime }) {
-  const isActive = currentTime === tutor.timings;
+      {sessions.length === 0 ? (
+        <p>No sessions booked yet.</p>
+      ) : (
+        sessions.map((session) => {
+          const date = new Date(session.datetime);
+          const formattedDate = date.toLocaleDateString();
+          const formattedTime = date.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
 
-  return (
-    <div className="tutor-card">
-      <p>
-        <strong>Tutor Name: </strong>
-        {tutor.name}
-      </p>
-      <p>
-        <strong>Subject: </strong> {tutor.subject}
-      </p>
-      <p>
-        <strong>Timings: </strong> {tutor.timings}
-      </p>
-      <p>
-        <strong>Date: </strong> {tutor.date}
-      </p>
-      <button className={`button ${isActive ? "button-active" : ""}`}>
-        Upcoming
-      </button>
+          return (
+            <div key={session.id} className="tutor-card">
+              <p>
+                <strong>Tutor Name:</strong> {session.name}
+              </p>
+              <p>
+                <strong>Subject:</strong> {session.subject}
+              </p>
+              <p>
+                <strong>Date:</strong> {formattedDate}
+              </p>
+              <p>
+                <strong>Time:</strong> {formattedTime}
+              </p>
+              <button className="button">
+                {getSessionStatus(session.datetime)}
+              </button>
+            </div>
+          );
+        })
+      )}
     </div>
   );
 }
