@@ -11,9 +11,7 @@ const profile = [
     },
 ];
 
-function Profile({
-    type = "student"
-}) {
+function Profile({type}) {
     const name = profile[0].name;
     const age = profile[0].age;
     const totalSessions = profile[0].totalSessions;
@@ -42,7 +40,7 @@ function Profile({
                     <strong>Upcoming Sessions : </strong>
                     {upcomingSessions}
                 </p>
-                {type.toLowerCase() === "tutor" && <p>
+                {type === "tutor" && <p>
                     <strong>Available Hours : </strong>
                     {AvailableHours}
                 </p>}

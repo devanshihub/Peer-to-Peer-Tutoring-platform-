@@ -7,8 +7,7 @@
 }
 
 body {
-  font-size: 18px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif !important;
 }
 
 p {
@@ -19,10 +18,10 @@ ol,
 ul {
   margin-left: 50px;
 }
-
+/* 
 li {
   margin-bottom: 10px;
-}
+} */
 
 a{
   text-decoration: none;
@@ -36,6 +35,7 @@ img {
 
 form {
   text-align: left;
+  font-family: "Open Sans", sans-serif !important;
 }
 
 label {
@@ -74,10 +74,10 @@ ol,
 ul {
   margin-left: 50px;
 }
-
+/* 
 li {
   margin-bottom: 10px;
-}
+} */
 
 img {
   width: 100%;
@@ -85,7 +85,7 @@ img {
 }
 
 label {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -332,6 +332,7 @@ input:focus {
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
+  font-family: "Open Sans", sans-serif !important;
 }
 
 .sidebar-button:hover {
@@ -340,7 +341,7 @@ input:focus {
 
 .sidebar-button-active {
   background-color: #7d64b6;
-  font-size: 18px;
+  font-weight: 600;
 }
 
 .student-img {

@@ -2,6 +2,7 @@ import UpcommingSessions from "./tutorDashboardComponents/upcommingSessions";
 import Requests from "./tutorDashboardComponents/requests";
 import { useState } from "react";
 import Profile from "./common/Profile/Profile";
+import { Outlet } from "react-router-dom";
 
 function TutorDashboard() {
   const [activeItem, setActiveItem] = useState("Profile");
@@ -50,7 +51,10 @@ function TutorDashboard() {
           Upcomming Sessions
         </button>
       </div>
-      <div>{activeWindow}</div>
+      {/* Open - Remove this */}
+      {/* <div>{activeWindow}</div> */}
+      {/* Closed */}
+      <Outlet/>
     </div>
   );
 }
