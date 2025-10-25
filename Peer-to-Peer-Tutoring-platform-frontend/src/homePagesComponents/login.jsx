@@ -13,8 +13,9 @@ function Login() {
     setActiveForm(type);
     setUserInfo((prev)=>({
       ...prev,
-      userInfo: type
+      type: type
     }));
+    console.log(userInfo);
   };
 
   const handleChange = (e) => {
@@ -27,6 +28,7 @@ function Login() {
 
   const handleLogin = () => {
     const user = JSON.stringify(userInfo);
+
     localStorage.setItem("user", user);
     navigate("/");
   }
@@ -42,7 +44,7 @@ function Login() {
         </button>
         <button
           className={activeForm === "student" ? "signup-buttons-active" : ""}
-          onClick={()=>handleType('student')}
+          onClick={()=>handleType("student")}
         >
           Student
         </button>
