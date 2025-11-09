@@ -52,9 +52,9 @@ function TutorDashboard() {
         </button>
       </div>
       {/* Open - Remove this */}
-      {/* <div>{activeWindow}</div> */}
+      <div>{activeWindow}</div>
       {/* Closed */}
-      <Outlet/>
+      {/* <Outlet/> */}
     </div>
   );
 }

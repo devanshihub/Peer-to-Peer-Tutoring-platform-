@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 * {
   margin: 0;
@@ -23,7 +23,7 @@ li {
   margin-bottom: 10px;
 } */
 
-a{
+a {
   text-decoration: none;
   color: #fff;
 }
@@ -60,7 +60,7 @@ input:focus {
   box-shadow: 0 0 5px rgba(79, 32, 189, 0.4);
 }
 
-input::placeholder{
+input::placeholder {
   font-family: "Open Sans", sans-serif;
 }
 
@@ -299,6 +299,38 @@ input:focus {
   background-color: yellow;
 }
 
+.btn-accept {
+  background-color: #4f20bd;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-accept:hover {
+  background-color: green;
+}
+
+.btn-delete {
+  background-color: #4f20bd;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-delete:hover {
+  background-color: red;
+}
+
+.btn-active {
+  background-color: rgb(189, 189, 1);
+}
+
 /* student dashboard container */
 
 .student-dashboard-container {
@@ -319,7 +351,7 @@ input:focus {
   height: 100vh;
 }
 
-.sidebar a{
+.sidebar a {
   width: 100%;
 }
 
