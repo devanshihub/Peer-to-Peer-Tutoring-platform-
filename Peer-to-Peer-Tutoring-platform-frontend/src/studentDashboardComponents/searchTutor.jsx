@@ -72,7 +72,7 @@ function Tutor({ tutor, onBook }) {
       <p>
         <strong>Tutor Subject :</strong> {tutor.subject}
       </p>
-      <Link to="/book-session">
+      <Link to="/studentdashboard/bookingform">
         <button className="button" onClick={onBook}>
           Book Session
         </button>

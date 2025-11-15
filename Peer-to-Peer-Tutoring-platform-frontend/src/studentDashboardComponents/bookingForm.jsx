@@ -48,7 +48,7 @@ function BookingForm({ onClose }) {
     setDatetime("");
     setTutor({name : "" ,subject:""});
 
-    navigate("/my-sessions");
+    navigate("/studentdashboard/my-sessions");
   };
 
   return (
