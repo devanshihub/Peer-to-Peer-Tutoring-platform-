@@ -6,7 +6,9 @@ function MySessions() {
   const getSessionStatus = (sessionDateTime, durationMinutes = 60) => {
     const now = new Date();
     const sessionStart = new Date(sessionDateTime);
-    const sessionEnd = new Date(sessionStart.getTime() + durationMinutes * 60000);
+    const sessionEnd = new Date(
+      sessionStart.getTime() + durationMinutes * 60000
+    );
     if (now < sessionStart) {
       return "Upcoming";
     } else if (now >= sessionStart && now <= sessionEnd) {
@@ -14,13 +16,13 @@ function MySessions() {
     } else {
       return "Inactive";
     }
-  }
+  };
 
   useEffect(() => {
-    // Load all booked sessions from localStorage
-    const storedBookings = JSON.parse(localStorage.getItem("bookedSessions")) || [];
+    const storedBookings =
+      JSON.parse(localStorage.getItem("bookedSessions")) || [];
     setSessions(storedBookings);
-  }, []); // runs once when page loads
+  }, []);
 
   return (
     <div className="container">
