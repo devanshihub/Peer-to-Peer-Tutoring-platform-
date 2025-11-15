@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
   const [activeForm, setActiveForm] = useState("tutor");
   const [userInfo, setUserInfo] = useState({
     type: "tutor",
@@ -11,102 +13,73 @@ function Login() {
 
   const handleType = (type) => {
     setActiveForm(type);
-    setUserInfo((prev)=>({
+    setUserInfo((prev) => ({
       ...prev,
-      type: type
+      type: type,
     }));
-    console.log(userInfo);
   };
 
   const handleChange = (e) => {
-    const {name, value} = e.target;
-    setUserInfo((prev)=>({
+    const { name, value } = e.target;
+    setUserInfo((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleLogin = () => {
-    const user = JSON.stringify(userInfo);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    localStorage.setItem("user", JSON.stringify(userInfo));
 
-    localStorage.setItem("user", user);
-    navigate("/");
-  }
+    if (userInfo.type === "student") {
+      navigate("/studentdashboard");
+    } else {
+      navigate("/tutordashboard");
+    }
+  };
 
   return (
     <div className="login-container">
       <div className="signup-buttons">
         <button
           className={activeForm === "tutor" ? "signup-buttons-active" : ""}
-          onClick={()=>handleType("tutor")}
+          onClick={() => handleType("tutor")}
         >
           Tutor
         </button>
         <button
           className={activeForm === "student" ? "signup-buttons-active" : ""}
-          onClick={()=>handleType("student")}
+          onClick={() => handleType("student")}
         >
           Student
         </button>
       </div>
-      {activeForm === "tutor" && (
-        <form>
-          <label htmlFor="tutorUsername">Username</label>
-          <input
-            type="text"
-            id="tutorUsername"
-            name="name"
-            value={userInfo.name}
-            placeholder="Enter your username"
-            onChange={handleChange}
-            required
-          />
 
-          <label htmlFor="tutorPassword">Password</label>
-          <input
-            type="password"
-            id="tutorPassword"
-            name="password"
-            value={userInfo.password}
-            placeholder="Enter password"
-            required
-            onChange={handleChange}
-          />
+      <form onSubmit={handleLogin}>
+        <label>Username</label>
+        <input
+          type="text"
+          name="name"
+          value={userInfo.name}
+          onChange={handleChange}
+          placeholder="Enter your username"
+          required
+        />
 
-          <button type="submit" className="submit-btn" onClick={handleLogin}>
-            Login as Tutor
-          </button>
-        </form>
-      )}
-      {activeForm === "student" && (
-        <form>
-          <label htmlFor="studentUsername">Username</label>
-          <input
-            type="text"
-            id="studentUsername"
-            name="name"
-            value={userInfo.name}
-            placeholder="Enter your username"
-            required
-            onChange={handleChange}
-          />
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          value={userInfo.password}
+          onChange={handleChange}
+          placeholder="Enter password"
+          required
+        />
 
-          <label htmlFor="studentPassword">Password</label>
-          <input
-            type="password"
-            id="studentPassword"
-            name="password"
-            value={userInfo.password}
-            placeholder="Enter password"
-            required
-            onChange={handleChange}
-          />
-
-          <button type="submit" className="submit-btn" onClick={handleLogin}>
-            Login as Student
-          </button>
-        </form>
-      )}
+        <button type="submit" className="submit-btn">
+          Login as {activeForm === "tutor" ? "Tutor" : "Student"}
+        </button>
+      </form>
     </div>
   );
 }
