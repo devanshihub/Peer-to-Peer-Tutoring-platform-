@@ -7,9 +7,9 @@ function Login() {
   const [userInfo, setUserInfo] = useState({
     type: "tutor",
     name: "",
-    age: 0,
     password: "",
   });
+
 
   const handleType = (type) => {
     setActiveForm(type);
@@ -27,14 +27,32 @@ function Login() {
     }));
   };
 
+
   const handleLogin = (e) => {
     e.preventDefault();
-    localStorage.setItem("user", JSON.stringify(userInfo));
 
-    if (userInfo.type === "student") {
-      navigate("/studentdashboard");
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+
+    if (!savedUser) {
+      alert("No user found! Please sign up first.");
+      return;
+    }
+
+    if (
+      savedUser.name === userInfo.name &&
+      savedUser.password === userInfo.password &&
+      savedUser.type === userInfo.type
+    ) {
+
+      localStorage.setItem("user", JSON.stringify(savedUser));
+
+      if (savedUser.type === "student") {
+        navigate("/studentdashboard");
+      } else {
+        navigate("/tutordashboard");
+      }
     } else {
-      navigate("/tutordashboard");
+      alert("Invalid credentials or wrong user type!");
     }
   };
 
@@ -47,6 +65,7 @@ function Login() {
         >
           Tutor
         </button>
+
         <button
           className={activeForm === "student" ? "signup-buttons-active" : ""}
           onClick={() => handleType("student")}
