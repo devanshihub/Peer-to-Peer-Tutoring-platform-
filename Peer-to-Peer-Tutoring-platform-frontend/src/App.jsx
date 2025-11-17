@@ -13,7 +13,7 @@ import MySessions from "./studentDashboardComponents/mySessions";
 import Profile from "./common/Profile/Profile";
 import UpcommingSessions from "./tutorDashboardComponents/upcommingSessions";
 import Requests from "./tutorDashboardComponents/requests";
-
+import PrivateRoute from "./PrivateRoute"; 
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,25 +53,39 @@ const router = createBrowserRouter([
   },
   {
     path: "/studentdashboard",
-    element: <StudentDashboard />,
+    element: <PrivateRoute allowedType="student" />,   
     children: [
-      { index: true, element: <Profile type="student"/> },
-      { path: "bookingform", element: <BookingForm /> },
-      { path: "search-tutor", element: <SearchTutor /> },
-      { path: "my-sessions", element: <MySessions /> },
+      { path: "", element: <StudentDashboard /> },
+      {
+        path: "",
+        element: <StudentDashboard />,
+        children: [
+          { index: true, element: <Profile type="student" /> },
+          { path: "bookingform", element: <BookingForm /> },
+          { path: "search-tutor", element: <SearchTutor /> },
+          { path: "my-sessions", element: <MySessions /> },
+        ],
+      },
     ],
   },
+
   {
     path: "/tutordashboard",
-    element: <TutorDashboard />,
+    element: <PrivateRoute allowedType="tutor" />,    
     children: [
-      { index: true, element: <Profile type="tutor" /> },
-      { path: "requests", element: <Requests /> },
-      { path: "upcoming-sessions", element: <UpcommingSessions /> },
+      { path: "", element: <TutorDashboard /> },
+      {
+        path: "",
+        element: <TutorDashboard />,
+        children: [
+          { index: true, element: <Profile type="tutor" /> },
+          { path: "requests", element: <Requests /> },
+          { path: "upcoming-sessions", element: <UpcommingSessions /> },
+        ],
+      },
     ],
   },
 ]);
-
 function App() {
   return <RouterProvider router={router} />;
 }
