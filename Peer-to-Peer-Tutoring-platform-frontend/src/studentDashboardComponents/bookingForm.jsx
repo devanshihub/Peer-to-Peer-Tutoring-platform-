@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function BookingForm({ onClose }) {
   const [datetime, setDatetime] = useState("");
@@ -39,7 +40,7 @@ function BookingForm({ onClose }) {
 
     localStorage.setItem("bookedSessions", JSON.stringify(updatedBookings));
 
-    alert(` Session booked with ${tutor.name} for ${tutor.subject} at ${datetime}`);
+    
 
     const user = JSON.parse(localStorage.getItem("user")) || {};
 
@@ -50,7 +51,9 @@ function BookingForm({ onClose }) {
     };
 
     localStorage.setItem("user", JSON.stringify(updatedUser));
-
+    if(updatedUser){
+      toast.success(` Session booked with ${tutor.name} for ${tutor.subject} at ${new Date(datetime).toDateString()}`);
+    }
 
 
     if (onClose) onClose();
