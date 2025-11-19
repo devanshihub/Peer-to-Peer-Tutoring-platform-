@@ -41,6 +41,17 @@ function BookingForm({ onClose }) {
 
     alert(` Session booked with ${tutor.name} for ${tutor.subject} at ${datetime}`);
 
+    const user = JSON.parse(localStorage.getItem("user")) || {};
+
+    const updatedUser = {
+      ...user,
+      totalSessions: (user.totalSessions || 0) + 1,
+      upcomingSessions: (user.upcomingSessions || 0) + 1,
+    };
+
+    localStorage.setItem("user", JSON.stringify(updatedUser));
+
+
 
     if (onClose) onClose();
 
