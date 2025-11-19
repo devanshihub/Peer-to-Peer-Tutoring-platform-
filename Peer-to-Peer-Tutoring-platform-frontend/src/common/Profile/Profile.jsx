@@ -25,7 +25,7 @@ function Profile({type}) {
             <h2>Hi {name} , Welcome to {renderType} Dashboard</h2>
             <div>
                 <p>
-                    <strong>Tutor Name : </strong>
+                    <strong>Student Name : </strong>
                     {name}
                 </p>
                 <p>

@@ -52,12 +52,12 @@ function SearchTutor() {
         )}
       </div>
 
-      {/* {selectedTutor && (
+       {selectedTutor && (
         <BookingForm tutor={selectedTutor.name}
           subject={selectedTutor.subject}
           onClose={() => setSelectedTutor(null)}
         />
-      )} */}
+      )} 
     </div>
   );
 }
